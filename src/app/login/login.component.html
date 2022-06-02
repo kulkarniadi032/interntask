@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-2 div-color p-5 shadow">
+      <div class="fw-bold">Welcome to</div>
+      <div>University of Commons</div>
+      <div class="div-text">Volunteer management made easy</div>
+      <div>
+        <img src="./assets/loginimg.png" alt="" class="img-fluid" />
+      </div>
+    </div>
+    <div class="col-md-4 p-5 shadow">
+      <div class="text-center">
+        <img src="./assets/logo.png" alt="" class="img-fluid p-5" />
+      </div>
+      <form [formGroup]="form" (ngSubmit)="formData(form.value)">
+        <div class="alert alert-danger" *ngIf="!isLogin">
+          Please fill correct information
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter email address"
+            formControlName="email"
+            [ngClass]="{
+              'is-valid':
+                form.get('email')?.valid && form.get('email')?.touched,
+              'is-invalid':
+                !form.get('email')?.valid && form.get('email')?.touched
+            }"
+          />
+          <span class="invalid-feedback"
+            >Please enter correct email address</span
+          >
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter mobile no."
+            formControlName="mobile"
+            [ngClass]="{
+              'is-valid':
+                form.get('mobile')?.valid && form.get('mobile')?.touched,
+              'is-invalid':
+                !form.get('mobile')?.valid && form.get('mobile')?.touched
+            }"
+          />
+          <span class="invalid-feedback">Please enter correct mobile no.</span>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text"><i class="bi bi-lock"></i></span>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Enter your password"
+            formControlName="password"
+            [ngClass]="{
+              'is-valid':
+                form.get('password')?.valid && form.get('password')?.touched,
+              'is-invalid': !form.get('password')?.valid
+            }"
+          />
+          <span class="invalid-feedback"
+            >Please enter correct password or at least 5 characters</span
+          >
+        </div>
+        <div class="text-end div-text2 mt-2 fw-light">Forgot password?</div>
+        <div class="text-center p-5">
+          <button class="btn btn-primary w-50">Log In</button>
+          <div class="div-text2 mt-3">
+            Don't have an account?<span class="text-primary">Sign Up</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
